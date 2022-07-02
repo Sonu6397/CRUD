@@ -1,0 +1,35 @@
+﻿@model List<CRUD.Models.empmodel>
+@{
+    ViewBag.Title = "Home Page";
+}
+<table class="table table-bordered table-hover table-responsive" >
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>city</th>
+        <th>company</th>
+        <th>salary</th>
+        <th>gender</th>
+        <th>Delete</th>
+        <th>Details</th>
+        <th>Edit</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.Email</td>
+    <td>@item.City</td>
+    <td>@item.Company</td>
+    <td>@item.Salary</td>
+    <td>@item.Gender</td>
+    <td><a class="btn btn-danger" href="@Url.Action("delete", "home", new {id=item.Id})">DELETE</a></td>
+    <td><a class="btn btn-warning" href="@Url.Action("DETAILS", "home", new {id=item.Id})">DETAILS</a></td>
+    <td><a class="btn btn-success" href="@Url.Action("EDIT", "home", new {id=item.Id})">EDIT</a></td>
+
+</tr>
+    }
+</table>
